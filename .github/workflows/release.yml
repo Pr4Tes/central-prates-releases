@@ -1,0 +1,27 @@
+name: Publicar Central Prates validado
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conferir pacote e publicar
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          git init staging
+          git -C staging remote add origin "https://github.com/$GITHUB_REPOSITORY.git"
+          git -C staging fetch --depth=1 origin "$GITHUB_SHA"
+          git -C staging checkout --detach FETCH_HEAD
+          cd staging/packages/0.70.0
+          cat CentralPrates-0.70.0.apk.part001 CentralPrates-0.70.0.apk.part002 CentralPrates-0.70.0.apk.part003 CentralPrates-0.70.0.apk.part004 CentralPrates-0.70.0.apk.part005 > CentralPrates-0.70.0.apk
+          sha256sum --check SHA256SUMS.txt
+          if gh release view v0.70.0 --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            echo "Release já existe; preservar sem substituir."
+            exit 1
+          fi
+          gh release create v0.70.0 CentralPrates-0.70.0.apk SHA256SUMS.txt ASSINATURA.txt VALIDACAO.md manifest.json --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" --title "Central Prates 0.70.0" --notes-file NOTES.md --latest
