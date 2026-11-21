@@ -1,0 +1,13 @@
+{
+  "version": "0.73.0",
+  "versionCode": 73,
+  "package": "br.com.centralprates.app",
+  "databaseVersion": 60,
+  "minSdk": 26,
+  "apk": "CentralPrates-0.73.0.apk",
+  "bytes": 46928527,
+  "sha256": "6e9d2be7751b9b976006c04e44a9ba9d161f105ffca40ab2ea6a682121dc79d1",
+  "signerCertificateSha256": "ffc713a18416ba624367cdb2e541fe6d1d9a900de996cbec8f95005b0502ff5c",
+  "debuggable": false,
+  "embeddedDriveDeferred": true
+}
