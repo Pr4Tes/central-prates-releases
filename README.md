@@ -1,9 +1,7 @@
 # Central Prates para Android
 
-Canal oficial de distribuição de versões do Central Prates.
+Instaladores e arquivos de verificação das versões oficiais do Central Prates.
 
-O código-fonte permanece no repositório privado do projeto. Este repositório contém apenas arquivos de distribuição e suas informações de verificação.
+Baixe o APK completo em [Releases](https://github.com/Pr4Tes/central-prates-releases/releases/latest). A assinatura e os hashes acompanham cada versão.
 
-A versão 0.70.0 está em validação. Nenhuma release estável foi publicada neste canal até o momento.
-
-Não desinstale a versão anterior para instalar uma atualização; preserve seus dados e mantenha uma cópia de backup fora do aparelho.
+Guarde um backup externo antes de atualizar. A instalação de produção usa o pacote br.com.centralprates.app. Para migrar da versão0.32, exporte o backup no aplicativo antigo e importe na instalação nova.
